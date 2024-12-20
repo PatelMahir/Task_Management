@@ -7,6 +7,6 @@ namespace Task_Management.DB_Context
     {
         public AppDbContext(DbContextOptions<AppDbContext>options):base(options) 
         { }
-        public DbSet<TaskItem> Tasks { get; set; }
+        public DbSet<TaskItem> Tasks { get; set; }   //Table field
     }
 }
