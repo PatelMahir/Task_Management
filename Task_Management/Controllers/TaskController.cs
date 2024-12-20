@@ -23,7 +23,7 @@ namespace Task_Management.Controllers
         [HttpPost]
         public async Task<ActionResult<TaskItem>> CreateTask(TaskItem task)
         {
-            _context.Tasks.Add(task);
+            _context.Tasks.Add(task);      //For adding task
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetTasks), new { id = task.Id }, task);
         }
@@ -34,10 +34,10 @@ namespace Task_Management.Controllers
             {
                 return BadRequest();
             }
-            _context.Entry(task).State = EntityState.Modified;
+            _context.Entry(task).State = EntityState.Modified;  //for updating task
             try
             {
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync();    //for saving updated task
             }
             catch (DbUpdateConcurrencyException)
             {
